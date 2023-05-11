@@ -11,4 +11,4 @@ class VoteViewSet(viewsets.ModelViewSet):
     """
     queryset = Vote.objects.all().order_by('-id')
     serializer_class = VoteSerializer
-    permission_classes = [custom_permissions.GetPostAuthenticatedOtherAdmin]
+    permission_classes = [custom_permissions.VoteGetPostAuthenticatedOtherAdmin]

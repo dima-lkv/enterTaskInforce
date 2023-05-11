@@ -6,4 +6,4 @@ class MenuSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Menu
 
-        fields = ['url', 'week_day', 'choice', 'restaurant_id']
+        fields = ['url', 'id', 'week_day', 'choice', 'restaurant_id']

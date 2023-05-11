@@ -11,6 +11,17 @@ class MenuViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows menus to be viewed or edited.
     """
-    queryset = Menu.objects.all().filter(created_at=datetime.now().strftime("%m/%d/%Y")).order_by('restaurant_id')
+    queryset = Menu.objects.all().order_by('restaurant_id')
     serializer_class = MenuSerializer
     permission_classes = [custom_permissions.GetPostAllOtherAdmin]
+
+
+class TodayMenuViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows today menus to be viewed or edited.
+    """
+    serializer_class = MenuSerializer
+    permission_classes = [custom_permissions.GetOnly]
+
+    def get_queryset(self):
+        return Menu.objects.filter(week_day=datetime.now().weekday()).order_by('restaurant_id')
