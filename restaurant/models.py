@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from django.db import models
 
@@ -7,6 +7,4 @@ from django.db import models
 class Restaurant(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=60)
-    menu = models.TextField(blank=True)
-    points = models.IntegerField(default=0)
-    created_at = models.DateTimeField(auto_now=datetime.datetime.now(), editable=False)
+    created_at = models.CharField(max_length=10, default=datetime.now().strftime("%m/%d/%Y"))
