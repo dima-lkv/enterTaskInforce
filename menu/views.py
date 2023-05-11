@@ -1,9 +1,9 @@
 from datetime import datetime
 
-from django.db.models import Count, F
+from django.db.models import Count
 from rest_framework import viewsets
 
-import custom_permissions
+from utils import custom_permissions
 from menu.serializers import MenuSerializer
 from menu.models import Menu
 from vote.models import Vote

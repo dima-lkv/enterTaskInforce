@@ -1,6 +1,6 @@
-import custom_permissions
+from utils import custom_permissions
 from .models import Vote
-from rest_framework import permissions, viewsets
+from rest_framework import viewsets
 
 from .serializers import VoteSerializer
 
